@@ -7,6 +7,8 @@ import Mycard from "../Pages/Mycard/Mycard";
 import Productp from "../Components/Productpage/Productp";
 import ViewDetails from "../Components/ViewDetails/ViewDetails";
 import Update from "../Components/Updateproduct/Update";
+import Login from "../Components/Login/Login";
+import Register from "../Components/Register/Register";
 
 
 const Router = createBrowserRouter([
@@ -42,6 +44,14 @@ const Router = createBrowserRouter([
                 path:'/update/:id',
                 element:<Update></Update>,
                 loader: ({params})=>fetch(`http://localhost:5000/update/${params.id}`)
+            },
+            {
+                path:'/login',
+                element:<Login></Login>
+            },
+            {
+                path:'register',
+                element:<Register></Register>
             }
         ]
     }

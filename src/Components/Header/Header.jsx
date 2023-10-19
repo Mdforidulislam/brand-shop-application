@@ -1,11 +1,15 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { createcontext } from "../../Context/AuthContext/AuthContext";
 
 const Header = () => {
+  const {curentuser,singOutPage} = useContext(createcontext)
     const manuNav = <>
         <NavLink to={'/'}><li className="mr-4">Home</li></NavLink>
         <NavLink to={'/addcard'}><li className="mr-4">Add Product</li></NavLink>
         <NavLink to={'/mycard'}><li className="mr-4">My Card</li></NavLink>
     </>
+    console.log(curentuser);
     return (
         <div className=" shadow bg-slate-100">
               <div className="navbar bg-base-500  max-w-screen-xl mx-auto">
@@ -26,11 +30,25 @@ const Header = () => {
               </ul>
             </div>
             <div className="navbar-end">
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                    <div className="w-10 rounded-full">
-                    <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                    </div>
-                </label>
+              
+                {
+                  curentuser ? 
+                  <div className=" flex items-center">
+                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                        <div className="w-10 rounded-full">
+                          {
+                            curentuser.photoURL?  <img src={curentuser.photoURL} alt=""  /> :
+                             <img src='https://e7.pngegg.com/pngimages/84/165/png-clipart-united-states-avatar-organization-information-user-avatar-service-computer-wallpaper-thumbnail.png' alt=""  />
+                          }
+                      
+                        </div>
+                     </label> 
+                      <button onClick={singOutPage} className="btn bg-white">LogOut</button>
+                  </div>
+              
+              : 
+              <Link to={'/login'}><button className="btn bg-white">Login</button></Link>
+                }
             </div>
           </div>
         </div>

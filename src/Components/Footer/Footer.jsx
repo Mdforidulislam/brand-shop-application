@@ -1,6 +1,6 @@
 const Footer = () => {
     return (
-        <div className="">
+        <div className="mt-4 shadow">
 
             <footer className="footer p-10 text-base-content max-w-screen-xl mx-auto">
                 <nav>

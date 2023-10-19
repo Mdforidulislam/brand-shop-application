@@ -4,11 +4,20 @@ import { createContext, useEffect, useState } from "react";
 export const createcontext = createContext(null)
 
 const auth = getAuth(app);
-const googleProvider = new GoogleAuthProvider();
+
+
+const AuthContext = ({children}) => {
+
+    const [curentuser, setCureentuser] = useState([])
+    const [loading,setLoading] = useState(true)
+
+    const googleProvider = new GoogleAuthProvider();
 const createuserEmail = (email,password) => {
+    setLoading(true)
     return createUserWithEmailAndPassword(auth,email,password)
 }
 const loginwithEmail = ( email,password) => {
+    setLoading(true)
     return signInWithEmailAndPassword(auth,email,password)
 }
 
@@ -18,12 +27,10 @@ const singOutPage = () => {
     .catch(error => console.log(error))
 }
 
-const AuthContext = ({children}) => {
-    const [curentuser, setCureentuser] = useState([])
-
     useEffect(()=>{
         const unsuscripbe = onAuthStateChanged(auth,currentUser =>{
             setCureentuser(currentUser)
+            setLoading(false)
         }) ;
 
        return () => unsuscripbe()
@@ -37,7 +44,7 @@ const AuthContext = ({children}) => {
        .catch(error => console.log(error))
     }
  
-    const autInfomation = {createuserEmail,singinWithGoogle,loginwithEmail,curentuser,singOutPage}
+    const autInfomation = {loading,createuserEmail,singinWithGoogle,loginwithEmail,curentuser,singOutPage}
 
     return (
        <createcontext.Provider value={autInfomation}>

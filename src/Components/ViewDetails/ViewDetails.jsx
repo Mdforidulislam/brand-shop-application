@@ -1,3 +1,4 @@
+import { Rating } from "@mui/material";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -34,6 +35,10 @@ const ViewDetails = () => {
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
                 <p>{short_description}</p>
+                <p>Price: ${price}</p>
+                <div>
+                      <Rating name="half-rating-read" defaultValue={rating} precision={0.5} readOnly />
+                </div>
                 <div className="card-actions justify-end w-full">
                 <button onClick={hanleSubmitCard} className="btn btn-primary w-full">Buy Now</button>
                 </div>

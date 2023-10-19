@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import Banner from "../AdvartisBanner/Banner";
+import { Rating } from "@mui/material";
 
 
 const Productp = () => {
@@ -39,7 +40,10 @@ const Productp = () => {
                     <div className="card-body items-center text-center">
                       <h2 className="card-title">{product?.name}</h2>
                       <p>{product.short_description}</p>
-                      <p>{product.price}</p>
+                      <p>Price: ${product.price}</p>
+                      <div>
+                      <Rating name="half-rating-read" defaultValue={product.rating} precision={0.5} readOnly />
+                      </div>
                       <div className="card-actions w-full">
                         <Link className="w-full" to={`/productviwe/${product._id}`}><button className="btn btn-primary w-full">View Details</button></Link>
                       </div>

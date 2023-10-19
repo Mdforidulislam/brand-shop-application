@@ -1,3 +1,4 @@
+import { Rating } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -68,6 +69,9 @@ const Mycard = () => {
                       <h2 className="card-title">{product?.name}</h2>
                       <p>{product?.short_description}</p>
                       <p>{product?.price}</p>
+                      <div>
+                      <Rating name="half-rating-read" defaultValue={product.rating} precision={0.5} readOnly />
+                      </div>
                       <div className="card-actions">
                         <button onClick={()=>handleCardDelete(product._id)} className="btn btn-primary">Delete</button>
                         <Link to={`/update/${product._id}`}><button className="btn btn-primary">Update</button></Link>

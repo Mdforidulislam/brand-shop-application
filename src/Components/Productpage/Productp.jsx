@@ -1,10 +1,14 @@
+import { useEffect, useState } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import Banner from "../AdvartisBanner/Banner";
+
 
 const Productp = () => {
+  const [banner ,setBanner] = useState([])
     const updateData = useLoaderData()
     console.log(updateData);
-    const brandname = useParams()
+    const {brandname} = useParams()
     if (updateData.length < 1) {
       Swal.fire({
         icon: 'error',
@@ -13,8 +17,19 @@ const Productp = () => {
       })
     }
     console.log(brandname);
+    
+
+    useEffect(()=>{
+      fetch(`http://localhost:5000/banner/${brandname}`)
+      .then(res => res.json())
+      .then(data => setBanner(data))
+    })
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-screen-xl mx-auto py-10 px-4">
+       <div>
+        <div>
+            <Banner banner={banner}></Banner>
+        </div>
+         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-screen-xl mx-auto py-10 px-4">
             {
                 updateData?.map(product => 
                     <div key={product._id} className="card  bg-base-100 shadow-xl">
@@ -33,6 +48,7 @@ const Productp = () => {
                   )
             }
         </div>
+       </div>
     );
 };
 

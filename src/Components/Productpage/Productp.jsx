@@ -16,7 +16,7 @@ const Productp = () => {
                       <p>{product.short_description}</p>
                       <p>{product.price}</p>
                       <div className="card-actions w-full">
-                        <Link to={''}><button className="btn btn-primary w-full">View Details</button></Link>
+                        <Link className="w-full" to={`/productviwe/${product._id}`}><button className="btn btn-primary w-full">View Details</button></Link>
                       </div>
                     </div>
                   </div>

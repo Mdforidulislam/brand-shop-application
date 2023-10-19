@@ -1,6 +1,6 @@
 const Footer = () => {
     return (
-        <div className="bg-slate-100">
+        <div className="">
 
             <footer className="footer p-10 text-base-content max-w-screen-xl mx-auto">
                 <nav>

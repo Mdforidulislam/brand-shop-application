@@ -4,7 +4,7 @@ const CustomerReview = () => {
    
     return (
     <div>
-  <div className="bg-gray-100 py-10">
+  <div className=" py-10">
             <div className="text-center mb-4">
                 <h1 className="text-3xl font-bold">Customer Review</h1>
                 <p>Read what our valued customers have to say about their experiences.</p>

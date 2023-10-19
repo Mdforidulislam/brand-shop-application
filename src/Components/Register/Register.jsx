@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { createcontext } from "../../Context/AuthContext/AuthContext";
+import Swal from "sweetalert2";
 
 const Register = () => {
     const {createuserEmail} = useContext(createcontext)
@@ -10,6 +11,23 @@ const Register = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
+        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$!%*?&])[A-Za-z\d@#$!%*?&]{8,}$/;
+
+        if (password.length < 6) {
+            return Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Password is invalid. It must be less then 6 criteria.!',
+              })
+        }
+        if (!passwordPattern.test(password)) {
+           return Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Password is invalid. It must meet the specified criteria.!',
+              })
+        }
+      
 
         createuserEmail(email,password)
         .then(result => console.log(result))

@@ -1,8 +1,18 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Productp = () => {
     const updateData = useLoaderData()
     console.log(updateData);
+    const brandname = useParams()
+    if (updateData.length < 1) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: `No product available on category ${updateData?.brandname}`,
+      })
+    }
+    console.log(brandname);
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-screen-xl mx-auto py-10 px-4">
             {

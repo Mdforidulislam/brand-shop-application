@@ -2,6 +2,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { createcontext } from "../../Context/AuthContext/AuthContext";
+import Swal from "sweetalert2";
 
 
 
@@ -14,8 +15,22 @@ const Login = () => {
         const password = form.password.value;
         console.log(email,password);
         loginwithEmail(email,password)
-        .then(result => console.log(result))
-        .catch(error => console.log(error))
+        .then(result => {
+            console.log(result)
+            Swal.fire(
+                'Good job!',
+                'You clicked the button!',
+                'success'
+              )
+        })
+        .catch(error => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: error.message,
+              })
+            console.log(error)
+        })
     }
 
     console.log(singinWithGoogle,singinWithGoogleauth);
@@ -50,11 +65,11 @@ const Login = () => {
                 >
                     Login
                 </button>
-                <button onClick={singinWithGoogle} className="btn mt-5 rounded-none w-full border-lime-100 bg-none">Google</button>
 
-                <Link to={'/register'}><p className="text-green-600 mt-4">Register here</p></Link>
                  
             </form>
+                <button onClick={singinWithGoogle} className="btn mt-5 rounded-none w-full border-lime-100 bg-none">Google</button>
+                <Link to={'/register'}><p className="text-green-600 mt-4">Register here</p></Link>
         </div>
     </div>
     );

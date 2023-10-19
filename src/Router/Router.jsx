@@ -9,6 +9,7 @@ import ViewDetails from "../Components/ViewDetails/ViewDetails";
 import Update from "../Components/Updateproduct/Update";
 import Login from "../Components/Login/Login";
 import Register from "../Components/Register/Register";
+import Privet from "../Pages/Privet/Privet";
 
 
 const Router = createBrowserRouter([
@@ -23,11 +24,12 @@ const Router = createBrowserRouter([
             },
             {
                 path:'/addcard',
-                element:<Addcard></Addcard>
+                element: <Privet><Addcard></Addcard></Privet>
+                
             },
             {
                 path:'/mycard',
-                element:<Mycard></Mycard>
+                element:<Privet><Mycard></Mycard></Privet>
             },
             {
                 path:'/product/:brandname',
@@ -36,13 +38,13 @@ const Router = createBrowserRouter([
             },
             {
                 path:'/productviwe/:id',
-                element:<ViewDetails></ViewDetails>,
+                element:<Privet><ViewDetails></ViewDetails></Privet>,
                 loader: ({params})=> fetch(`http://localhost:5000/productviwe/${params.id}`)
 
             },
             {
                 path:'/update/:id',
-                element:<Update></Update>,
+                element:<Privet><Update></Update></Privet>,
                 loader: ({params})=>fetch(`http://localhost:5000/update/${params.id}`)
             },
             {

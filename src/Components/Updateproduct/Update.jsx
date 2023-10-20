@@ -17,7 +17,7 @@ const Update = () => {
         const productInfo = {img,type,name,brand,price,description,rating}
         console.log(productInfo);
         
-        fetch(`http://localhost:5000/update/${productinfo._id}`,{
+        fetch(`https://assigment-10-telectronice-1keabxvkp-mdforidulislam.vercel.app/update/${productinfo._id}`,{
             method:'PUT',
             headers:{
                 'Content-Type': 'application/json'

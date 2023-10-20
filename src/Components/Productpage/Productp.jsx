@@ -14,21 +14,26 @@ const Productp = () => {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: `No product available on category ${updateData?.brandname}`,
+        text: `No product available on category ${brandname}`,
       })
     }
     console.log(brandname);
     
 
     useEffect(()=>{
-      fetch(`http://localhost:5000/banner/${brandname}`)
+      fetch(`https://assigment-10-telectronice-1keabxvkp-mdforidulislam.vercel.app/banner/${brandname}`)
       .then(res => res.json())
       .then(data => setBanner(data))
-    })
+    },[brandname])
     return (
        <div>
         <div>
             <Banner banner={banner}></Banner>
+        </div>
+        <div>
+          {
+            updateData.length < 1 ?  'No product Available'  : ' '
+          }
         </div>
          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-screen-xl mx-auto py-10 px-4">
             {

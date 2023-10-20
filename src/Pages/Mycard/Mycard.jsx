@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 const Mycard = () => {
     const [productcard, setCardProduct] = useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/cardinfo')
+        fetch('https://assigment-10-telectronice-1keabxvkp-mdforidulislam.vercel.app/cardinfo')
         .then(res => res.json())
         .then(data => setCardProduct(data))
     })
@@ -29,7 +29,7 @@ const Mycard = () => {
             reverseButtons: true
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/cardDelete/${id}`,{
+                fetch(`https://assigment-10-telectronice-1keabxvkp-mdforidulislam.vercel.app/cardDelete/${id}`,{
                     method:'DELETE'
                 })
                 .then(res => res.json())

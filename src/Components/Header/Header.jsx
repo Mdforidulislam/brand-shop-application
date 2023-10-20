@@ -66,10 +66,12 @@ const Header = () => {
                 {
                   curentuser ? 
                   <div className=" flex items-center">
+                    <h1>{curentuser?.displayName}</h1>
                      <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
                           {
-                            curentuser.photoURL?  <img src={curentuser.photoURL} alt=""  /> :
+                            curentuser.photoURL? <img src={curentuser.photoURL} alt=""  />
+                            :
                              <img src='https://e7.pngegg.com/pngimages/84/165/png-clipart-united-states-avatar-organization-information-user-avatar-service-computer-wallpaper-thumbnail.png' alt=""  />
                           }
                       

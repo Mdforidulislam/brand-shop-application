@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 const Mycard = () => {
     const [productcard, setCardProduct] = useState([])
     useEffect(()=>{
-        fetch('https://assigment-10-telectronice-1keabxvkp-mdforidulislam.vercel.app/cardinfo')
+        fetch('https://assigment-10-telectronice-gwxtzcdks-mdforidulislam.vercel.app/cardinfo')
         .then(res => res.json())
         .then(data => setCardProduct(data))
     })
@@ -29,7 +29,7 @@ const Mycard = () => {
             reverseButtons: true
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://assigment-10-telectronice-1keabxvkp-mdforidulislam.vercel.app/cardDelete/${id}`,{
+                fetch(`https://assigment-10-telectronice-gwxtzcdks-mdforidulislam.vercel.app/cardDelete/${id}`,{
                     method:'DELETE'
                 })
                 .then(res => res.json())
@@ -59,6 +59,11 @@ const Mycard = () => {
     }
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-screen-xl mx-auto px-6 py-10">
+          <div>
+            {
+              productcard.length < 1 ? " no Product Added here Please add product  " : ' '
+            }
+          </div>
             {
                 productcard.map(product => 
                     <div key={product._id} className="card bg-base-100 shadow-xl">
@@ -67,7 +72,7 @@ const Mycard = () => {
                     </figure>
                     <div className="card-body items-center text-center">
                       <h2 className="card-title">{product?.name}</h2>
-                      <p>{product?.short_description}</p>
+                      <p>{product?.short_description.slice(0,70)}</p>
                       <p>{product?.price}</p>
                       <div>
                       <Rating name="half-rating-read" defaultValue={product.rating} precision={0.5} readOnly />

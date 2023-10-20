@@ -10,7 +10,7 @@ const ViewDetails = () => {
    
 
     const hanleSubmitCard = () =>{
-        fetch('https://assigment-10-telectronice-1keabxvkp-mdforidulislam.vercel.app/productadd',{
+        fetch('https://assigment-10-telectronice-gwxtzcdks-mdforidulislam.vercel.app/productadd',{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'
@@ -34,6 +34,8 @@ const ViewDetails = () => {
             <figure><img src={img} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
+                <h1 className="text-xl">Brand Name : {brandname}</h1>
+                <h1 className="text-xl">product Type : {category}</h1>
                 <p>{short_description}</p>
                 <p>Price: ${price}</p>
                 <div>

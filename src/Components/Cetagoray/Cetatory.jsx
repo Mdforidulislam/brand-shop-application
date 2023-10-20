@@ -23,7 +23,7 @@ console.log(category);
                             <h2 className="card-title">{singCategory?.category_name}</h2>
                             <p>If a dog chews shoes whose shoes does he choose?</p>
                             <div className="card-actions w-full">
-                                 <Link className="w-full" to={`/product/${singCategory.category_name}`}><button className="w-full btn">Explore Products</button></Link>
+                                 <Link className="w-full" to={`/product/${singCategory.category_name.toLowerCase()}`}><button className="w-full btn">Explore Products</button></Link>
                             </div>
                         </div>
                         </div>

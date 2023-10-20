@@ -6,14 +6,14 @@ const Addcard = () => {
         const form = event.target;
         const img = form.img.value;
         const name = form.name.value;
-        const brand = form.brand.value;
+        const brandname = form.brand.value;
         const price = form.price.value;
-        const description = form.description.value;
+        const short_description = form.description.value;
         const rating = form.rating.value;
-        const type = form.type.value;
-        const productInfo = {img,type,name,brand,price,description,rating}
+        const category = form.type.value;
+        const productInfo = {img,category,name,brandname,price,short_description,rating}
         console.log(productInfo);
-        fetch('https://assigment-10-telectronice-1keabxvkp-mdforidulislam.vercel.app/product',{
+        fetch('https://assigment-10-telectronice-gwxtzcdks-mdforidulislam.vercel.app/product',{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'

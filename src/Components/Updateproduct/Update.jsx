@@ -17,7 +17,7 @@ const Update = () => {
         const productInfo = {img,type,name,brand,price,description,rating}
         console.log(productInfo);
         
-        fetch(`https://assigment-10-telectronice-1keabxvkp-mdforidulislam.vercel.app/update/${productinfo._id}`,{
+        fetch(`https://assigment-10-telectronice-gwxtzcdks-mdforidulislam.vercel.app/update/${productinfo._id}`,{
             method:'PUT',
             headers:{
                 'Content-Type': 'application/json'

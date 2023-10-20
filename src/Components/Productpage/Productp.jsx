@@ -21,10 +21,11 @@ const Productp = () => {
     
 
     useEffect(()=>{
-      fetch(`https://assigment-10-telectronice-1keabxvkp-mdforidulislam.vercel.app/banner/${brandname}`)
+      fetch(`https://assigment-10-telectronice-gwxtzcdks-mdforidulislam.vercel.app/banner/${brandname}`)
       .then(res => res.json())
       .then(data => setBanner(data))
     },[brandname])
+    console.log(banner);
     return (
        <div>
         <div>
@@ -44,7 +45,7 @@ const Productp = () => {
                     </figure>
                     <div className="card-body items-center text-center">
                       <h2 className="card-title">{product?.name}</h2>
-                      <p>{product.short_description}</p>
+                      <p>{product.short_description.slice(0,70)}</p>
                       <p>Price: ${product.price}</p>
                       <div>
                       <Rating name="half-rating-read" defaultValue={product.rating} precision={0.5} readOnly />

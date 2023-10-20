@@ -34,18 +34,18 @@ const Router = createBrowserRouter([
             {
                 path:'/product/:brandname',
                 element:<Productp></Productp>,
-                loader: ({params}) => fetch(`https://assigment-10-telectronice-1keabxvkp-mdforidulislam.vercel.app/product/${params.brandname}`)
+                loader: ({params}) => fetch(`https://assigment-10-telectronice-gwxtzcdks-mdforidulislam.vercel.app/product/${params.brandname}`)
             },
             {
                 path:'/productviwe/:id',
                 element:<Privet><ViewDetails></ViewDetails></Privet>,
-                loader: ({params})=> fetch(`https://assigment-10-telectronice-1keabxvkp-mdforidulislam.vercel.app/productviwe/${params.id}`)
+                loader: ({params})=> fetch(`https://assigment-10-telectronice-gwxtzcdks-mdforidulislam.vercel.app/productviwe/${params.id}`)
 
             },
             {
                 path:'/update/:id',
                 element:<Privet><Update></Update></Privet>,
-                loader: ({params})=>fetch(`https://assigment-10-telectronice-1keabxvkp-mdforidulislam.vercel.app/update/${params.id}`)
+                loader: ({params})=>fetch(`https://assigment-10-telectronice-gwxtzcdks-mdforidulislam.vercel.app/update/${params.id}`)
             },
             {
                 path:'/login',

@@ -13,7 +13,7 @@ const Addcard = () => {
         const category = form.type.value;
         const productInfo = {img,category,name,brandname,price,short_description,rating}
         console.log(productInfo);
-        fetch('https://assigment-10-telectronice-gwxtzcdks-mdforidulislam.vercel.app/product',{
+        fetch('https://assigment-10-telectronice-4kjc1hzbo-mdforidulislam.vercel.app/product',{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'

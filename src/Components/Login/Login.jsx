@@ -3,11 +3,14 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { createcontext } from "../../Context/AuthContext/AuthContext";
 import Swal from "sweetalert2";
+import LocationContext from "../UseLocation/Location";
 
 
 
 const Login = () => {
    const {singinWithGoogle,singinWithGoogleauth,loginwithEmail} = useContext(createcontext)
+   const {userlocation} = useContext(LocationContext)
+   console.log(userlocation);
     const handleSubmit =(event) =>{
         event.preventDefault()
         const form = event.target;

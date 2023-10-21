@@ -1,16 +1,21 @@
 import { Rating } from "@mui/material";
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { createcontext } from "../../Context/AuthContext/AuthContext";
 
 const ViewDetails = () => {
+    const {curentuser} = useContext(createcontext)
+    const userEmail = curentuser.email;
+    console.log(userEmail);
     const  {brandname,category,img,name,price,rating,short_description} = useLoaderData()
 
-    const buyproductinfo = {brandname,category,img,name,price,rating,short_description}
-    console.log();
+    const buyproductinfo = {userEmail,brandname,category,img,name,price,rating,short_description}
+    console.log(buyproductinfo);
    
 
     const hanleSubmitCard = () =>{
-        fetch('https://assigment-10-telectronice-gwxtzcdks-mdforidulislam.vercel.app/productadd',{
+        fetch('https://assigment-10-telectronice-4kjc1hzbo-mdforidulislam.vercel.app/productadd',{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'

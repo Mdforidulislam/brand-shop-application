@@ -21,7 +21,7 @@ const Productp = () => {
     
 
     useEffect(()=>{
-      fetch(`https://assigment-10-telectronice-gwxtzcdks-mdforidulislam.vercel.app/banner/${brandname}`)
+      fetch(`https://assigment-10-telectronice-4kjc1hzbo-mdforidulislam.vercel.app/banner/${brandname}`)
       .then(res => res.json())
       .then(data => setBanner(data))
     },[brandname])
@@ -52,6 +52,7 @@ const Productp = () => {
                       </div>
                       <div className="card-actions w-full">
                         <Link className="w-full" to={`/productviwe/${product._id}`}><button className="btn btn-primary w-full">View Details</button></Link>
+                        <Link className="w-full" to={`/update/${product._id}`}><button className="btn btn-primary w-full">Update</button></Link>
                       </div>
                     </div>
                   </div>

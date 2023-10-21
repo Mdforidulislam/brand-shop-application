@@ -1,16 +1,12 @@
 import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 import { app } from "../../Firebase/Firebase.config";
 import { createContext, useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 export const createcontext = createContext(null)
 
 const auth = getAuth(app);
 
 
 const AuthContext = ({children}) => {
-
-   
-
     const [curentuser, setCureentuser] = useState([])
     const [loading,setLoading] = useState(true)
 
@@ -51,9 +47,12 @@ const singOutPage = () => {
     const autInfomation = {loading,createuserEmail,singinWithGoogle,loginwithEmail,curentuser,singOutPage}
 
     return (
-       <createcontext.Provider value={autInfomation}>
+
+          <createcontext.Provider value={autInfomation}>
             {children}
-       </createcontext.Provider>
+           </createcontext.Provider>
+
+       
     );
 };
 

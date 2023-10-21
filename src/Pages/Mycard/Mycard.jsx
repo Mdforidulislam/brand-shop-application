@@ -1,12 +1,14 @@
 import { Rating } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { createcontext } from "../../Context/AuthContext/AuthContext";
 
 const Mycard = () => {
+  const {curentuser} = useContext(createcontext)
     const [productcard, setCardProduct] = useState([])
     useEffect(()=>{
-        fetch('https://assigment-10-telectronice-gwxtzcdks-mdforidulislam.vercel.app/cardinfo')
+        fetch('https://assigment-10-telectronice-4kjc1hzbo-mdforidulislam.vercel.app/cardinfo')
         .then(res => res.json())
         .then(data => setCardProduct(data))
     })
@@ -29,7 +31,7 @@ const Mycard = () => {
             reverseButtons: true
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://assigment-10-telectronice-gwxtzcdks-mdforidulislam.vercel.app/cardDelete/${id}`,{
+                fetch(`https://assigment-10-telectronice-4kjc1hzbo-mdforidulislam.vercel.app/cardDelete/${id}`,{
                     method:'DELETE'
                 })
                 .then(res => res.json())
@@ -57,15 +59,19 @@ const Mycard = () => {
           })
             
     }
+
+    const cardFilter = productcard.filter(product => product.userEmail  === curentuser.email)
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-screen-xl mx-auto px-6 py-10">
-          <div>
+       <div>
+        <div>
             {
-              productcard.length < 1 ? " no Product Added here Please add product  " : ' '
+              cardFilter.length < 1 ? " no Product Added here Please add product  " : ' '
             }
-          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-screen-xl mx-auto px-6 py-10">
+         
             {
-                productcard.map(product => 
+                cardFilter?.map(product => 
                     <div key={product._id} className="card bg-base-100 shadow-xl">
                     <figure className="px-10 pt-10">
                       <img src={product.img}alt="Shoes" className="rounded-xl" />
@@ -79,13 +85,13 @@ const Mycard = () => {
                       </div>
                       <div className="card-actions">
                         <button onClick={()=>handleCardDelete(product._id)} className="btn btn-primary">Delete</button>
-                        <Link to={`/update/${product._id}`}><button className="btn btn-primary">Update</button></Link>
                       </div>
                     </div>
                   </div>
                 )
             }
         </div>
+       </div>
     );
 };
 

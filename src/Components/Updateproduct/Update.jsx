@@ -1,8 +1,10 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Update = () => {
     const productinfo = useLoaderData()
+    const {id} = useParams()
+    console.log(id);
     
     const hanelUpdateProduct = (event) =>{
         event.preventDefault()
@@ -17,7 +19,7 @@ const Update = () => {
         const productInfo = {img,type,name,brand,price,description,rating}
         console.log(productInfo);
         
-        fetch(`https://assigment-10-telectronice-gwxtzcdks-mdforidulislam.vercel.app/update/${productinfo._id}`,{
+        fetch(`https://assigment-10-telectronice-4kjc1hzbo-mdforidulislam.vercel.app/update/${id}`,{
             method:'PUT',
             headers:{
                 'Content-Type': 'application/json'

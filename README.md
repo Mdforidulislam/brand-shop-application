@@ -13,3 +13,15 @@
 #### i also make application for technical product and web application for sales product , every customer there coming in my application then can purchase product on the store ! so when the users coming in my application ad time customer want to purchase the product at time need to login application ! and inside the  application most of the features  like dark mood , google login , email sing , etc . privet router 
 
 
+## ⚔️ Technology use
+
+<p align="center">
+  <a href="">
+    <img src="https://skillicons.dev/icons?i=js,react,tailwind,html,css,firebase" />
+  </a>
+</p>
+<p align="center">
+  <a href="">
+    <img src="https://skillicons.dev/icons?i=express,mongodb" />
+  </a>
+</p>
